@@ -1,0 +1,15 @@
+.current__events {
+    background-color: #17171c;
+    font-size: 14px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    padding-left: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-top: 20px;
+    /* max-width: 85%; */
+}
+
+.current__events > h2 {
+    font-weight: 800;
+}

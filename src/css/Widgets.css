@@ -1,0 +1,101 @@
+.widgets {
+    flex: 0.3;
+    color: #e8f5fe;
+    background-color: black;
+    padding-left: 36px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.widgets__input {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    background-color: #212327;
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.widgets__input > input {
+    border: none;
+    background-color: #212327;
+    outline: none;
+    font-size: 16px;
+    color: #e8f5fe;
+    cursor: text;
+}
+
+.widgets__searchIcon {
+    color: #6c7175;
+}
+
+.widgets__widgetContainer {
+    margin-top: 15px;
+    margin-left: 20px;
+    padding: 20px;
+    background-color: #15202b;
+    border-radius: 20px;
+}
+
+.widgets__widgetContainer > h2 {
+    font-size: 21px;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.widgets::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.widgets {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Fun little test of my css skills 
+replicating the what's happening 
+current events widget but just went
+with the react-tweet-embed way. */
+
+.current__event {
+    background-color: #17171c;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    /* max-width: 80%; */
+}
+
+.current__eventContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.more__icon {
+    color: #71767B;
+    cursor: not-allowed;
+}
+
+.current__eventInfo {
+    color: #71767B;
+    font-weight: 500;
+    font-size: 14px;
+    /* padding-bottom: 5px; */
+}
+
+.current__eventTitle {
+    color: #e8f5fe;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.current__event:hover {
+    background-color: rgba(47, 51, 57, 0.7);
+    transition: all ease 100ms;
+    transition-property: background-color, box-shadow;
+} 

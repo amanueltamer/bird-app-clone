@@ -1,0 +1,66 @@
+.post {
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1px solid #2F3336;
+}
+
+.post__body {
+    flex: 1;
+    padding: 10px;
+    padding-right: 16px;
+    max-width: 500px;
+}
+
+.post__body > img {
+    object-fit: cover;
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+.post__footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    color: #71777b;
+    max-width: 450px;
+    margin-left: 8px;
+}
+
+.post__footerIcon {
+    font-size: 19px !important;
+    cursor: pointer;
+}
+
+.post__avatar > .MuiAvatar-root {
+    width: 50px;
+    height: 50px;
+}
+
+.post__headerDescription {
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.post__headerText > h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.post__badge {
+    font-size: 18px !important;
+    color: var(--twitter-color);
+    vertical-align: top;
+}
+
+.post__headerSpecial {
+    font-weight: 500;
+    font-size: 14px;
+    color: gray;
+}
+
+.post__avatar {
+    padding-left: 15px;
+    padding-top: 10px;
+}
