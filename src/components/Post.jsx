@@ -1,18 +1,18 @@
 import { ChatBubbleOutlineOutlined, FavoriteBorder, IosShare, Publish, Repeat, Verified } from '@mui/icons-material';
 import { Avatar } from '@mui/material';
-import React from 'react';
+import React, { forwardRef } from 'react';
 import "../css/Post.css";
 
-export default function Post({
+const Post = forwardRef(({
     displayName,
     username,
     verified,
     text,
     image,
     avatar
-}) {
+}, ref) => {
   return (
-    <div className='post'>
+    <div className='post' ref={ref}>
         <div className="post__avatar">
             <Avatar src={avatar}/>
         </div>
@@ -40,4 +40,6 @@ export default function Post({
         </div>
     </div>
   )
-}
+})
+
+export default Post

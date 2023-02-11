@@ -15,19 +15,38 @@
     display: flex;
 }
 
-.tweetBox__input > input {
+.tweetBox__input > .MuiAvatar-root {
+    width: 45px;
+    height: 45px;
+}
+
+.tweetBox__inputContainer {
+    margin-top: 12px;
+    max-height: 500px;
+    width: 100%;
+}
+
+.tweetBox__inputContainer > input {
     flex: 1;
-    margin-left: 20px;
+    margin-left: 14px;
     font-size: 20px;
     border: none;
     background-color: black;
     color: #e8f5fe;
     outline: none;
+    max-height: 500px;
+    width: 100%;
+}
+
+hr {
+    border: 1px solid #2F3336;
+    margin-left: 14px;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 .tweetBox__imageInput {
     border: none;
-    padding: 10px;
     background-color: black;
     color: #e8f5fe;
 }
@@ -59,4 +78,10 @@
     display: flex;
     align-items: center;
     margin-left: 80px;
+}
+
+.tweetBox__error {
+    text-align: center;
+    font-size: 16px;
+    color: red;
 }

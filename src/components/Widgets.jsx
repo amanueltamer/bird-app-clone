@@ -3,11 +3,6 @@ import React from 'react'
 import "../css/Widgets.css"
 import CurrentEvents from './CurrentEvents'
 import ShowMore from './ShowMore'
-import {
-  TwitterTimelineEmbed,
-  TwitterShareButton,
-  TwitterTweetEmbed,
-} from "react-twitter-embed";
 import FollowWidget from './FollowWidget'
 
 export default function Widgets() {
@@ -61,14 +56,6 @@ export default function Widgets() {
         <ShowMore />
 
         <FollowWidget />
-
-        {/* <div className="widgets__widgetContainer">
-        <h2>More Events</h2>
-
-        <TwitterTweetEmbed tweetId={"1615003370410094595"} options={{theme: 'dark'}} />
-        <TwitterTweetEmbed tweetId={"1569556333929857027"} options={{theme: 'dark', conversation: 'none'}} />
-
-      </div> */}
     </div>
   )
 }

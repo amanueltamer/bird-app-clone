@@ -21,7 +21,7 @@
 .post__footer {
     display: flex;
     justify-content: space-between;
-    margin-top: 5px;
+    margin-top: 8px;
     color: #71777b;
     max-width: 450px;
     margin-left: 8px;
@@ -41,6 +41,10 @@
     margin-bottom: 10px;
     font-size: 15px;
     font-weight: 500;
+}
+
+.post__headerDescription {
+    word-wrap: break-word;
 }
 
 .post__headerText > h3 {
