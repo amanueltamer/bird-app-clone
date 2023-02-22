@@ -9,7 +9,7 @@ import {
 import { Avatar, Button } from "@mui/material";
 import React, { useState } from "react";
 import "../css/TweetBox.css";
-import db from "../firebase-config";
+import { db } from "../firebase-config";
 import { Tooltip as ReactTooltip } from 'react-tooltip'
 
 export default function TweetBox() {

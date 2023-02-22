@@ -1,6 +1,6 @@
-import { ChatBubbleOutlineOutlined, FavoriteBorder, IosShare, Publish, Repeat, Verified } from '@mui/icons-material';
+import { ChatBubbleOutlineOutlined, Favorite, IosShare, Publish, Repeat, Verified } from '@mui/icons-material';
 import { Avatar } from '@mui/material';
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState } from 'react';
 import "../css/Post.css";
 
 const Post = forwardRef(({
@@ -11,6 +11,14 @@ const Post = forwardRef(({
     image,
     avatar
 }, ref) => {
+
+    const [like, setLike] = useState(false);
+
+    const handleLike = () => {
+        setLike(!like);
+    }
+
+
   return (
     <div className='post' ref={ref}>
         <div className="post__avatar">
@@ -33,7 +41,7 @@ const Post = forwardRef(({
             <div className="post__footer">
                 <ChatBubbleOutlineOutlined className='post__footerIcon'/>
                 <Repeat className='post__footerIcon'/>
-                <FavoriteBorder className='post__footerIcon'/>
+                <Favorite onClick={handleLike} className={like ? 'post__footerIcon post__liked' : 'post__footerIcon'}/>
                 <Publish className='post__footerIcon'/>
                 <IosShare className='post__footerIcon' />
             </div>

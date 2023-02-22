@@ -24,6 +24,7 @@
     margin-top: 12px;
     max-height: 500px;
     width: 100%;
+    transition: all 3ms ease smooth;
 }
 
 .tweetBox__inputContainer > input {

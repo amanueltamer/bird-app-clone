@@ -22,7 +22,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 8px;
-    color: #71777b;
+    /* color: #71777b; */
     max-width: 450px;
     margin-left: 8px;
 }
@@ -30,6 +30,8 @@
 .post__footerIcon {
     font-size: 19px !important;
     cursor: pointer;
+    transition: transform 0.6 ease-in-out;
+    color: #71777b;
 }
 
 .post__avatar > .MuiAvatar-root {
@@ -67,4 +69,17 @@
 .post__avatar {
     padding-left: 15px;
     padding-top: 10px;
+}
+
+.post__liked{
+    color: #FA1880;
+    transition: color 0.3s ease-in-out;
+}
+
+.post__footerIcon:active{
+    transform: scale(1.2);
+}
+
+.post__footerIcon::after{
+    transform: scale(0.8);
 }

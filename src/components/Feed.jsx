@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../css/Feed.css";
 import Post from "./Post";
 import TweetBox from "./TweetBox";
-import db from "../firebase-config";
+import { db } from "../firebase-config";
 import FlipMove from 'react-flip-move';
 
 export default function Feed() {
