@@ -11,12 +11,16 @@ import React, { useState } from "react";
 import "../css/TweetBox.css";
 import { db } from "../firebase-config";
 import { Tooltip as ReactTooltip } from 'react-tooltip'
+import { useSelector } from "react-redux";
+import { selectUser } from "../features/userSlice";
 
 export default function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState("");
   const [tweetImage, setTweetImage] = useState("");
   const [error, setError] = useState("");
   const [showImageInput, setShowImageInput] = useState(false);
+
+  const user = useSelector(selectUser)
 
   const toggleImageInput = () => {
     setShowImageInput(!showImageInput);
@@ -61,7 +65,7 @@ export default function TweetBox() {
       {error && <div className="tweetBox__error">{error}</div>}
       <form>
         <div className="tweetBox__input">
-          <Avatar src="https://cdn.midjourney.com/68ab20f9-c22a-4d86-bd45-099475ee2f1f/grid_0.png" />
+          <Avatar src={user?.photoUrl} />
           <div className="tweetBox__inputContainer">
           <input
             onChange={(e) => setTweetMessage(e.target.value)}

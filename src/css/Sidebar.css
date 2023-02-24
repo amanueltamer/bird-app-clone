@@ -1,10 +1,13 @@
 .sidebar {
-    flex: 0.3;
+    /* flex: 0.3; */
     min-width: 250px;
     margin-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
     background-color: black;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .sidebar__twitterIcon {
@@ -14,32 +17,49 @@
     margin-bottom: 20px;
 }
 
-.sidebar__Option {
+/* .sidebar__Option {
     color: black !important;
+} */
+
+.sidebarOption {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+}
+
+.sidebarOption > .MuiSvgIcon-root {
+    padding: 16px !important;
+}
+.sidebarOption > h2 {
+    font-size: 20px !important; 
+    width: 100% !important;
 }
 
 .sidebar__tweet {
     background-color: var(--twitter-color) !important;
     border: none !important;
-    color: black !important;
+    color: #e8f5fe !important;
     font-weight: 900 !important;
     text-transform: inherit !important;
     border-radius: 30px !important;
     height: 50px !important;
     margin-top: 20px !important;
-    /* width: 250px !important */
+    font-size: 16px !important;
+    width: 100% !important;
 }
 
 .sidebar__signIn {
     background-color: var(--twitter-color) !important;
     border: none !important;
-    color: black !important;
+    color: #e8f5fe !important;
     font-weight: 900 !important;
     text-transform: inherit !important;
     border-radius: 30px !important;
     height: 50px !important;
     margin-top: 8px !important;
-    /* width: 200px !important; */
+    font-size: 15px !important;
+    width: 100% !important;
+
 }
 
 /* .signInButton {
@@ -48,3 +68,46 @@
     justify-content: center;
     flex-direction: column;
 } */
+
+.sidebar__displayName {
+    color: #e8f5fe;
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 2px;
+}
+
+.sidebar__username {
+    color: #71767B;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.sidebar__bottomContainer {
+    display: flex;
+    margin-bottom: 24px;
+    padding: 12px;
+    border-radius: 999px;
+    align-items: center;
+}
+
+.sidebar__bottomContainer:hover {
+    background-color: rgba(47, 51, 57, 0.7);
+    transition: all ease 100ms;
+}
+
+/* .sidebar__avatar */
+
+.sidebar__userInfo {
+    padding-left: 12px;
+    /* padding-right: 24px; */
+}
+
+.sidebar__userSeperator {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.more__icon {
+    color: #e8f5fe !important;
+}
