@@ -85,7 +85,7 @@ export default function Sidebar() {
 
       </div>
 
-      <div className="sidebar__bottomContainer">
+      {user ? (<div className="sidebar__bottomContainer">
         <div className="sidebar__avatar">
           <Avatar
             src={user?.photoUrl}
@@ -103,7 +103,8 @@ export default function Sidebar() {
           <MoreHoriz className='more__icon'/>
 
         </div>
-      </div>
+      </div> ) : null}
+      
     </div>
   );
 }
