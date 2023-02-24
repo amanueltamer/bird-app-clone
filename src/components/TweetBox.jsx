@@ -9,10 +9,11 @@ import {
 import { Avatar, Button } from "@mui/material";
 import React, { useState } from "react";
 import "../css/TweetBox.css";
-import { db } from "../firebase-config";
+import { auth, db } from "../firebase-config";
 import { Tooltip as ReactTooltip } from 'react-tooltip'
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
+import firebase from 'firebase/compat/app';
 
 export default function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState("");
@@ -28,6 +29,8 @@ export default function TweetBox() {
 
   const sendTweet = (e) => {
     e.preventDefault();
+
+    const userId = auth.currentUser.uid;
 
     if (!tweetMessage && !tweetImage) {
       setError("Please enter a message or choose an image");
@@ -45,15 +48,20 @@ export default function TweetBox() {
       return;
     }
 
+    console.log('user.uid:', user.uid);
+
     db.collection("posts").add({
-      displayName: "Amanuel Tamer",
-      username: "tamer",
+      displayName: user.displayName,
+      username: user?.displayName?.replace(/\s/g, ""),
       verified: true,
       text: tweetMessage || null,
       image: tweetImage || null,
-      avatar:
-        "https://cdn.midjourney.com/68ab20f9-c22a-4d86-bd45-099475ee2f1f/grid_0.png",
+      avatar: user.photoUrl,
+      userId: userId, // add user ID field to post
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(), // add timestamp field to post
     });
+
+    
 
     setTweetMessage("");
     setTweetImage("");

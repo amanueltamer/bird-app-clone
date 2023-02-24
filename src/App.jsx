@@ -6,7 +6,7 @@ import Sidebar from './components/Sidebar';
 import Widgets from './components/Widgets'
 import { login, selectUser } from './features/userSlice';
 import { auth } from './firebase-config';
-import UserFeed from './components/UserFeed'
+// import UserFeed from './components/UserFeed'
 
 function App() {
 
@@ -33,7 +33,7 @@ function App() {
   return (
     <div className="app">
       <Sidebar />
-      {user ? <UserFeed /> : <Feed/>}
+      <Feed />
       <Widgets />
     </div>
   );
