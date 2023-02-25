@@ -9,7 +9,7 @@ export default function Feed() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    db.collection("posts").onSnapshot(function(snapshot){
+    db.collection("posts").orderBy("timestamp", "desc").onSnapshot(function(snapshot){
       setPosts(snapshot.docs.map(function(doc){
         return doc.data()
       }))

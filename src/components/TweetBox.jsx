@@ -48,7 +48,16 @@ export default function TweetBox() {
       return;
     }
 
-    console.log('user.uid:', user.uid);
+    if (!user) {
+      setError("You must signed in to create a post.");
+      setTimeout(() => {
+        setError("");
+      }, 2000)
+    }
+
+    console.log(userId);
+    
+    console.log(user);
 
     db.collection("posts").add({
       displayName: user.displayName,

@@ -45,6 +45,12 @@
     font-weight: 500;
 }
 
+.post__headerDescriptionNoImg {
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
 .post__headerDescription {
     word-wrap: break-word;
 }
