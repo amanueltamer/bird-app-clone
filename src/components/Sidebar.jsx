@@ -8,6 +8,7 @@ import {
   PermIdentity,
   Search,
   Twitter,
+  Verified,
 } from "@mui/icons-material";
 import { Avatar, Button } from "@mui/material";
 import React from "react";
@@ -96,7 +97,10 @@ export default function Sidebar() {
         <div className="sidebar__userSeperator">
 
           <div className="sidebar__userInfo">
-            <h2 className="sidebar__displayName">{user?.displayName}</h2>
+            <div className="sidebar__displayNameContainer">
+            <h2 className="sidebar__displayName">{user?.displayName}{""}</h2>
+            <span><Verified className="sidebar__badge" /></span>
+            </div>
             <h3 className="sidebar__username">@{displayNameNoSpaces}</h3>
           </div>
 
@@ -104,7 +108,7 @@ export default function Sidebar() {
 
         </div>
       </div> ) : null}
-      
+
     </div>
   );
 }

@@ -74,6 +74,7 @@
     font-size: 16px;
     font-weight: 800;
     margin-bottom: 2px;
+    padding-right: 2px;
 }
 
 .sidebar__username {
@@ -110,4 +111,14 @@
 
 .more__icon {
     color: #e8f5fe !important;
+}
+
+.sidebar__displayNameContainer {
+    display: flex;
+}
+
+.sidebar__badge {
+    font-size: 18px !important;
+    color: var(--twitter-color);
+    vertical-align: top;
 }
