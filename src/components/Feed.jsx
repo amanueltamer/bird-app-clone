@@ -4,13 +4,17 @@ import Post from "./Post";
 import TweetBox from "./TweetBox";
 import { db } from "../firebase-config";
 import FlipMove from 'react-flip-move';
+import { CircularProgress } from "@mui/material";
 
 export default function Feed() {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    setLoading(true)
     db.collection("posts").orderBy("timestamp", "desc").onSnapshot(function(snapshot){
       setPosts(snapshot.docs.map(function(doc){
+        setLoading(false)
         return doc.data()
       }))
     })
@@ -23,8 +27,7 @@ export default function Feed() {
       </div>
 
       <TweetBox />
-
-      <FlipMove>
+      {loading ? <div className="loading__animation"><CircularProgress /></div> : <FlipMove>
       {posts.map((post) => (
         <Post
           key={post.text}
@@ -36,7 +39,7 @@ export default function Feed() {
           image={post.image}
         />
       ))}
-    </FlipMove>
+    </FlipMove>}
     </div>
   );
 }
