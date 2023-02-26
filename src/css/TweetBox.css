@@ -52,6 +52,7 @@ hr {
     color: #e8f5fe;
 }
 
+
 .tweetBox__tweetButton {
     background-color: var(--twitter-color) !important;
     border: none !important;
@@ -73,6 +74,10 @@ hr {
 .tweetBox__icon {
     font-size: 22px !important;
     cursor: pointer;
+}
+
+.tweetBox__icon:active {
+    border-color: transparent;
 }
 
 .tweetBox__iconContainer {

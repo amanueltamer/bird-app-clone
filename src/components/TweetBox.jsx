@@ -30,6 +30,14 @@ export default function TweetBox() {
   const sendTweet = (e) => {
     e.preventDefault();
 
+    if (!user) {
+      setError("You must be signed in to create a post.");
+      setTimeout(() => {
+        setError("");
+      }, 2000);
+      return;
+    }
+
     const userId = auth.currentUser.uid;
 
     if (!tweetMessage && !tweetImage) {
@@ -47,12 +55,13 @@ export default function TweetBox() {
       }, 2000);
       return;
     }
-
+    
     if (!user) {
-      setError("You must signed in to create a post.");
+      setError("You must be signed in to create a post.");
       setTimeout(() => {
         setError("");
-      }, 2000)
+      }, 2000);
+      return;
     }
 
     console.log(userId);
