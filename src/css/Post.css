@@ -9,6 +9,7 @@
     padding: 10px;
     padding-right: 16px;
     max-width: 500px;
+    width: 70%;
 }
 
 .post__body > img {
@@ -60,6 +61,12 @@
     margin-bottom: 5px;
 }
 
+#text {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 .post__badge {
     font-size: 18px !important;
     color: var(--twitter-color);
@@ -88,4 +95,9 @@
 
 .post__footerIcon::after{
     transform: scale(0.8);
+}
+
+p {
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }
