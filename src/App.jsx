@@ -1,3 +1,4 @@
+import { useMediaQuery } from '@mui/material';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import './App.css';
@@ -10,6 +11,9 @@ import { auth } from './firebase-config';
 function App() {
 
   const dispatch = useDispatch();
+
+  const isSmallScreen = useMediaQuery("(max-width: 850px)");
+
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -29,9 +33,18 @@ function App() {
 
   return (
     <div className="app">
-      <Sidebar />
-      <Feed />
-      <Widgets />
+      {isSmallScreen ? (
+        <>
+        <Sidebar />
+        <Feed />
+        </>
+      ) : (
+        <>
+        <Sidebar />
+        <Feed />
+        <Widgets />
+        </>
+      )}
     </div>
   );
 }
