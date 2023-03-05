@@ -1,83 +1,83 @@
 .follow__widget {
-    background-color: #17171c;
-    font-size: 15px;
-    margin-bottom: 24px;
-    padding-top: 12px;
-    /* padding-left: 20px; */
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    margin-top: 20px;
-    /* max-width: 80%; */
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
+  background-color: #17171c;
+  font-size: 15px;
+  margin-bottom: 24px;
+  padding-top: 12px;
+  /* padding-left: 20px; */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-top: 20px;
+  /* max-width: 80%; */
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 .follow__widget > h2 {
-    font-weight: 800;
-    font-size: 20px;
-    padding-left: 20px;
-    padding-bottom: 10px;
+  font-weight: 800;
+  font-size: 20px;
+  padding-left: 20px;
+  padding-bottom: 10px;
 }
 
 .follow__user {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    column-gap: 10px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  column-gap: 10px;
 }
 
 .follow__user:hover {
-    background-color: rgba(47, 51, 57, 0.7);
-    transition: all ease 100ms;
+  background-color: rgba(47, 51, 57, 0.7);
+  transition: all ease 100ms;
 }
 
 .follow__pfp > .MuiAvatar-root {
-    width: 45px;
-    height: 45px;
+  width: 45px;
+  height: 45px;
 }
 
 .follow__button {
-    background-color: white !important;
-    border: none !important;
-    border-radius: 30px !important;
-    color: black !important;
-    text-transform: inherit !important;
-    font-weight: 600 !important;
-    width: 80px !important;
-    height: 32px !important;
+  background-color: white !important;
+  border: none !important;
+  border-radius: 30px !important;
+  color: black !important;
+  text-transform: inherit !important;
+  font-weight: 600 !important;
+  width: 80px !important;
+  height: 32px !important;
 }
 
 .follow__nameContainer {
-    display: flex;
-    align-items: center;
-    column-gap: 5px;
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
 }
 
 .follow__name {
-    width: 160px;
+  width: 160px;
 }
 
 .follow__businessBadge {
-    color: #E2B617;
-    font-size: 18px !important;
-    vertical-align: middle;
+  color: #e2b617;
+  font-size: 18px !important;
+  vertical-align: middle;
 }
 
 .profile__name {
-    font-size: 16px;
-    display: flex;
-    column-gap: 2px;
-    white-space: nowrap;
+  font-size: 16px;
+  display: flex;
+  column-gap: 2px;
+  white-space: nowrap;
 }
 
 .follow__userBadge {
-    font-size: 18px !important;
-    color: var(--twitter-color);
-    vertical-align: middle;
+  font-size: 18px !important;
+  color: var(--twitter-color);
+  vertical-align: middle;
 }
 
 .profile__username {
-    font-size: 16px;
-    font-weight: 500;
-    color: #6e7377;
+  font-size: 16px;
+  font-weight: 500;
+  color: #6e7377;
 }
