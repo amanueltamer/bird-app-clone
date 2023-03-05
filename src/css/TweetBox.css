@@ -37,6 +37,12 @@
     outline: none;
     max-height: 500px;
     width: 100%;
+    overflow-wrap: break-word;
+}
+
+input {
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 hr {
@@ -90,4 +96,10 @@ hr {
     text-align: center;
     font-size: 16px;
     color: red;
+}
+
+@media (max-width: 693px) {
+    .optional {
+        display: none !important;
+    }
 }

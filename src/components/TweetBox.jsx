@@ -114,9 +114,9 @@ export default function TweetBox() {
             <Image id="image__component" data-tooltip-content="insert image" onClick={toggleImageInput} className="tweetBox__icon" />
             <ReactTooltip anchorId="image__component" />
             <GifBox className="tweetBox__icon" />
-            <Ballot className="tweetBox__icon" />
+            <Ballot className="tweetBox__icon optional" />
             <SentimentSatisfiedAlt className="tweetBox__icon" />
-            <Schedule className="tweetBox__icon" />
+            <Schedule className="tweetBox__icon optional" />
             <LocationOn className="tweetBox__icon" />
           </div>
           <Button
