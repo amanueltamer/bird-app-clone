@@ -1,7 +1,10 @@
 import {
+  Add,
   BookmarkBorder,
   Home,
   ListAlt,
+  Login,
+  Logout,
   MailOutline,
   MoreHoriz,
   NotificationsNone,
@@ -10,7 +13,7 @@ import {
   Twitter,
   Verified,
 } from "@mui/icons-material";
-import { Avatar, Button } from "@mui/material";
+import { Avatar, Button, useMediaQuery } from "@mui/material";
 import React from "react";
 import "../css/Sidebar.css";
 import SidebarOption from "./SidebarOption";
@@ -23,7 +26,9 @@ export default function Sidebar() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
-  const displayNameNoSpaces = user?.displayName?.replace(/\s/g, "");
+  const displayNameNoSpaces = user?.displayName?.replace(/\s/g, "").toLowerCase();
+
+  const isSmallScreen = useMediaQuery("(max-width: 1100px)");
 
   const signIn = () => {
     auth
@@ -49,7 +54,9 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebar__topContainer">
-        <Twitter className="sidebar__twitterIcon" />
+        <div className="sidebar__twitterIconContainer">
+          <Twitter className="sidebar__twitterIcon" />
+        </div>
 
         <SidebarOption active Icon={Home} text="Home" />
         <SidebarOption Icon={Search} text="Explore" />
@@ -60,55 +67,77 @@ export default function Sidebar() {
         <SidebarOption Icon={PermIdentity} text="Profile" />
         <SidebarOption Icon={MoreHoriz} text="More" />
 
-        <Button variant="outlined" className="sidebar__tweet" fullWidth>
-          Tweet
-        </Button>
-
-        {user ? (
-          <Button
-            variant="outlined"
-            className="sidebar__signIn"
-            fullWidth
-            onClick={signOut}
-          >
-            Sign Out
-          </Button>
+        {isSmallScreen ? (
+          <div className="sidebar__tweetQueryContainer">
+            <Add className="sidebar__tweetQuery"/>
+          </div>
         ) : (
-          <Button
-            variant="outlined"
-            className="sidebar__signIn"
-            fullWidth
-            onClick={signIn}
-          >
-            Sign In
+          <Button variant="outlined" className="sidebar__tweet" fullWidth>
+            Tweet
           </Button>
         )}
 
+{isSmallScreen ? (
+  <>
+    {user ? (
+      <div className="sidebar__userSignInContainer">
+        <Logout className="sidebar__SignInSmallScreen" onClick={signOut}/>
+      </div>
+    ) : (
+      <div className="sidebar__userSignInContainer">
+        <Login className="sidebar__SignInSmallScreen" onClick={signIn} />
+      </div>
+    )}
+  </>
+) : (
+  <>
+    {user ? (
+      <Button
+        variant="outlined"
+        className="sidebar__signIn"
+        fullWidth
+        onClick={signOut}
+      >
+        Log Out
+      </Button>
+    ) : (
+      <Button
+        variant="outlined"
+        className="sidebar__signIn"
+        fullWidth
+        onClick={signIn}
+      >
+        Log In
+      </Button>
+    )}
+  </>
+)}
       </div>
 
-      {user ? (<div className="sidebar__bottomContainer">
-        <div className="sidebar__avatar">
-          <Avatar
-            src={user?.photoUrl}
-            referrerPolicy="no-referrer"
-          />
-        </div>
-
-        <div className="sidebar__userSeperator">
-
-          <div className="sidebar__userInfo">
-            <div className="sidebar__displayNameContainer">
-            <h2 className="sidebar__displayName">{user?.displayName}{""}</h2>
-            <span><Verified className="sidebar__badge" /></span>
-            </div>
-            <h3 className="sidebar__username">@{displayNameNoSpaces}</h3>
+      {user ? (
+        <div className="sidebar__bottomContainer">
+          <div className="sidebar__avatar">
+            <Avatar src={user?.photoUrl} referrerPolicy="no-referrer" />
           </div>
 
-          <MoreHoriz className='more__icon'/>
+          <div className="sidebar__userSeperator">
+            <div className="sidebar__userInfo">
+              <div className="sidebar__displayNameContainer">
+                <h2 className="sidebar__displayName">
+                  {user?.displayName}
+                  {""}
+                </h2>
+                <span>
+                  <Verified className="sidebar__badge" />
+                </span>
+              </div>
+              <h3 className="sidebar__username">@{displayNameNoSpaces}</h3>
+            </div>
 
+            <MoreHoriz className="more__icon" />
+          </div>
         </div>
-      </div> ) : null}
-
+      ) : null}
     </div>
   );
 }
