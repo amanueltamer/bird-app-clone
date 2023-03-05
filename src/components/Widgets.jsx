@@ -56,6 +56,8 @@ export default function Widgets() {
         <ShowMore />
 
         <FollowWidget />
+
+        <h3 className="widgets__credits">Twitter clone made by Amanuel Tamer - 2023</h3>
     </div>
   )
 }

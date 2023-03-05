@@ -56,11 +56,6 @@
     scrollbar-width: none; /* Firefox */
 }
 
-/* Fun little test of my css skills 
-replicating the what's happening 
-current events widget but just went
-with the react-tweet-embed way. */
-
 .current__event {
     background-color: #17171c;
     padding-bottom: 10px;
@@ -99,3 +94,32 @@ with the react-tweet-embed way. */
     transition: all ease 100ms;
     transition-property: background-color, box-shadow;
 } 
+
+.widgets__credits {
+    color: #71767B;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 1100px) {
+    .widgets {
+        padding-left: 0px;
+    }
+
+    .follow__nameContainer {
+        display: none;
+    }
+
+    .profile__username {
+        display: none;
+    }
+}
+
+@media (max-width: 850px) {
+    .widgets {
+        display: none;
+    }
+}
