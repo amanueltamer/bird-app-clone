@@ -10,10 +10,10 @@ import { Avatar, Button } from "@mui/material";
 import React, { useState } from "react";
 import "../css/TweetBox.css";
 import { auth, db } from "../firebase-config";
-import { Tooltip as ReactTooltip } from 'react-tooltip'
+import { Tooltip as ReactTooltip } from "react-tooltip";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
-import firebase from 'firebase/compat/app';
+import firebase from "firebase/compat/app";
 
 export default function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState("");
@@ -21,13 +21,13 @@ export default function TweetBox() {
   const [error, setError] = useState("");
   const [showImageInput, setShowImageInput] = useState(false);
 
-  const user = useSelector(selectUser)
+  const user = useSelector(selectUser);
 
   const toggleImageInput = () => {
     setShowImageInput(!showImageInput);
-  }
+  };
 
-  const sendTweet = (e) => {
+  const sendTweet = (e, event) => {
     e.preventDefault();
 
     if (!user) {
@@ -55,7 +55,7 @@ export default function TweetBox() {
       }, 2000);
       return;
     }
-    
+
     if (!user) {
       setError("You must be signed in to create a post.");
       setTimeout(() => {
@@ -65,7 +65,7 @@ export default function TweetBox() {
     }
 
     console.log(userId);
-    
+
     console.log(user);
 
     db.collection("posts").add({
@@ -79,39 +79,56 @@ export default function TweetBox() {
       timestamp: firebase.firestore.FieldValue.serverTimestamp(), // add timestamp field to post
     });
 
-    
-
     setTweetMessage("");
     setTweetImage("");
+    
 
   };
+
+  const keyDownHandler = (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key == "Enter") {
+        // handle Ctrl/Command + Enter
+        e.preventDefault();
+        sendTweet(e);
+    }
+};
+
 
   return (
     <div className="tweetBox">
       {error && <div className="tweetBox__error">{error}</div>}
-      <form>
+      <form >
         <div className="tweetBox__input">
           <Avatar src={user?.photoUrl} />
           <div className="tweetBox__inputContainer">
-          <input
-            onChange={(e) => setTweetMessage(e.target.value)}
-            value={tweetMessage}
-            type="text"
-            placeholder="What's happening?"
+            <textarea
+              onChange={(e) => setTweetMessage(e.target.value)}
+              value={tweetMessage}
+              placeholder="What's happening?"
+              onKeyDown={keyDownHandler}
             />
-            {showImageInput && <>
-            <hr />
-            <input value={tweetImage}
-              onChange={(e) => setTweetImage(e.target.value)}
-              className="tweetBox__imageInput"
-              placeholder="Image URL"
-              type="text" />
-          </>}
-            </div>
+            {showImageInput && (
+              <>
+                <hr />
+                <input
+                  value={tweetImage}
+                  onChange={(e) => setTweetImage(e.target.value)}
+                  className="tweetBox__imageInput"
+                  placeholder="Image URL"
+                  type="text"
+                />
+              </>
+            )}
+          </div>
         </div>
         <div className="tweetBox__iconContainer">
           <div className="tweetBox__icons">
-            <Image id="image__component" data-tooltip-content="insert image" onClick={toggleImageInput} className="tweetBox__icon" />
+            <Image
+              id="image__component"
+              data-tooltip-content="insert image"
+              onClick={toggleImageInput}
+              className="tweetBox__icon"
+            />
             <ReactTooltip anchorId="image__component" />
             <GifBox className="tweetBox__icon" />
             <Ballot className="tweetBox__icon optional" />
