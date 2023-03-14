@@ -116,9 +116,25 @@ export default function Feed() {
           </div>
         </div>
       ) : (
+        <>
         <div className="feed__header">
+
+        <div className="feed__TopHalf">
           <h2>Home</h2>
         </div>
+
+        <div className="feed__BottomHalf">
+            <div className="feed__forYouBig">
+              <h3>For you</h3>
+              <div className="feed__forYouSelectedBig"></div>
+            </div>
+
+            <div className="feed__followingBig">
+              <h3>Following</h3>
+            </div>
+          </div>
+        </div>
+        </>
       )}
 
       <TweetBox />
