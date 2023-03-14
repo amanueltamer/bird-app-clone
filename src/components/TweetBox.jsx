@@ -110,12 +110,12 @@ export default function TweetBox() {
             {showImageInput && (
               <>
                 <hr />
-                <input
+                <textarea
                   value={tweetImage}
                   onChange={(e) => setTweetImage(e.target.value)}
                   className="tweetBox__imageInput"
                   placeholder="Image URL"
-                  type="text"
+                  onKeyDown={keyDownHandler}
                 />
               </>
             )}
