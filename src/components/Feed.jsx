@@ -4,7 +4,7 @@ import Post from "./Post";
 import TweetBox from "./TweetBox";
 import { auth, db, provider } from "../firebase-config";
 import FlipMove from "react-flip-move";
-import { Avatar, CircularProgress, useMediaQuery } from "@mui/material";
+import { Alert, Avatar, CircularProgress, Snackbar, useMediaQuery } from "@mui/material";
 import { login, logout, selectUser } from "../features/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Twitter } from "@mui/icons-material";
@@ -14,6 +14,8 @@ export default function Feed() {
   const [loading, setLoading] = useState(false);
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
+
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -52,25 +54,50 @@ export default function Feed() {
 
   const isSmallScreen = useMediaQuery("(max-width: 499px)");
 
+  function handleClick() {
+    setOpen(prevOpen => !prevOpen)
+  }
+
+  function handleClose() {
+    setOpen(prevOpen => !prevOpen)
+  }
+
   return (
     <div className="feed">
       {isSmallScreen ? (
         <div className="feed__phoneScreen">
           <div className="feed__phoneScreenTopHalf">
             {user ? (
+              <>
               <Avatar
-                src={user?.photoUrl}
-                referrerPolicy="no-referrer"
-                className="feed__profilePic"
-                onClick={signOut}
+              src={user?.photoUrl}
+              referrerPolicy="no-referrer"
+              className="feed__profilePic"
+              onClick={() => {
+                signOut(); 
+                handleClick();
+              }}
               />
+               <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+      <Alert onClose={handleClose} severity={user ? "success" : "info"} sx={{ width: '100%' }}>
+        {user ? "Successfully Logged In." : "Successfully Logged Out."}
+      </Alert>
+    </Snackbar>
+              </>      
             ) : (
+              <>
               <Avatar
                 src={user?.photoUrl}
                 referrerPolicy="no-referrer"
                 className="feed__profilePic"
                 onClick={signIn}
-              />
+                />
+                 <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+      <Alert onClose={handleClose} severity={user ? "success" : "info"} sx={{ width: '100%' }}>
+        {user ? "Successfully Logged In." : "Successfully Logged Out."}
+      </Alert>
+    </Snackbar>
+                </>
             )}
 
             <Twitter className="feed__twitterIcon" />
