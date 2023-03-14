@@ -12,7 +12,7 @@ function App() {
 
   const dispatch = useDispatch();
 
-  const isSmallScreen = useMediaQuery("(max-width: 850px)");
+  const isSmallScreen = useMediaQuery("(max-width: 694px)");
 
 
   useEffect(() => {
