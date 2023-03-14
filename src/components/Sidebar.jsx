@@ -13,8 +13,8 @@ import {
   Twitter,
   Verified,
 } from "@mui/icons-material";
-import { Avatar, Button, useMediaQuery } from "@mui/material";
-import React from "react";
+import { Alert, Avatar, Button, Snackbar, useMediaQuery } from "@mui/material";
+import React, { useState } from "react";
 import "../css/Sidebar.css";
 import SidebarOption from "./SidebarOption";
 import { auth, provider } from "../firebase-config";
@@ -29,6 +29,8 @@ export default function Sidebar() {
   const displayNameNoSpaces = user?.displayName?.replace(/\s/g, "").toLowerCase();
 
   const isSmallScreen = useMediaQuery("(max-width: 1100px)");
+
+  const [open, setOpen] = useState(false)
 
   const signIn = () => {
     auth
@@ -50,6 +52,14 @@ export default function Sidebar() {
       dispatch(logout());
     });
   };
+
+  function handleClick() {
+    setOpen(prevOpen => !prevOpen)
+  }
+
+  function handleClose() {
+    setOpen(prevOpen => !prevOpen)
+  }
 
   return (
     <div className="sidebar">
@@ -81,26 +91,40 @@ export default function Sidebar() {
   <>
     {user ? (
       <div className="sidebar__userSignInContainer">
-        <Logout className="sidebar__SignInSmallScreen" onClick={signOut}/>
+        <Logout className="sidebar__SignInSmallScreen" onClick={() => {
+          signOut();
+          handleClick();
+        }}/>
       </div>
     ) : (
       <div className="sidebar__userSignInContainer">
         <Login className="sidebar__SignInSmallScreen" onClick={signIn} />
       </div>
     )}
+    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+      <Alert onClose={handleClose} severity={user ? "success" : "info"} sx={{ width: '100%' }}>
+        {user ? "Successfully Logged In." : "Successfully Logged Out."}
+      </Alert>
+    </Snackbar>
   </>
 ) : (
   <>
     {user ? (
+    <>
       <Button
         variant="outlined"
         className="sidebar__signIn"
         fullWidth
-        onClick={signOut}
+        onClick={() => {
+          signOut(); 
+          handleClick();
+        } }
       >
         Log Out
       </Button>
+    </>
     ) : (
+      <>
       <Button
         variant="outlined"
         className="sidebar__signIn"
@@ -109,9 +133,16 @@ export default function Sidebar() {
       >
         Log In
       </Button>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+      <Alert onClose={handleClose} severity={user ? "success" : "info"} sx={{ width: '100%' }}>
+        {user ? "Successfully Logged In." : "Successfully Logged Out."}
+      </Alert>
+    </Snackbar>
+    </>
     )}
   </>
 )}
+
       </div>
 
       {user ? (
