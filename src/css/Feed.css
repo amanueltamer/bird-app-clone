@@ -1,5 +1,5 @@
 .feed {
-  flex: 2;
+  flex: 1;
   border-right: 1px solid #2f3336;
   border-left: 1px solid #2f3336;
   min-width: fit-content;
@@ -97,9 +97,9 @@
   .feed {
     flex: 1;
     min-width: 0;
-    /* border: none; */
+    border: none;
     overflow-y: auto;
-    border: 1px solid #2f3336;
+    /* border: 1px solid #2f3336; */
   }
 }
 
@@ -113,7 +113,8 @@
     flex-direction: column;
     position: sticky;
     top: 0;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
     z-index: 100;
   }
 
@@ -122,7 +123,6 @@
     justify-content: space-between;
     align-items: center;
     /* top: 0; */
-    background-color: black;
     /* z-index: 100; */
     /* border-right: 1px solid #2F3336; */
     padding: 10px 20px;
