@@ -1,7 +1,5 @@
 .thread {
   flex: 1;
-  border-right: 1px solid #2f3336;
-  border-left: 1px solid #2f3336;
   min-width: fit-content;
   overflow-y: scroll;
   overflow-x: scroll;
