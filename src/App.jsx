@@ -7,6 +7,8 @@ import Sidebar from './components/Sidebar';
 import Widgets from './components/Widgets'
 import { login } from './features/userSlice';
 import { auth } from './firebase-config';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Thread from './components/Thread';
 
 function App() {
 
@@ -32,20 +34,28 @@ function App() {
 
 
   return (
-    <div className="app">
-      {isSmallScreen ? (
-        <>
-        <Sidebar />
-        <Feed />
-        </>
-      ) : (
-        <>
-        <Sidebar />
-        <Feed />
-        <Widgets />
-        </>
-      )}
-    </div>
+    <Router>
+      <div className="app">
+        {isSmallScreen ? (
+          <>
+          <Sidebar />
+            <Routes>
+              <Route path="/thread/:postId" element={<Thread />}></Route>
+              <Route path="/" element={<Feed />}></Route>
+            </Routes>
+          </>
+        ) : (
+          <>
+          <Sidebar />
+            <Routes>
+              <Route path="/thread/:postId" element={<Thread />}></Route>
+              <Route path="/" element={<Feed />}></Route>
+            </Routes>
+          <Widgets />
+          </>
+        )}
+      </div>
+    </Router>
   );
 }
 
