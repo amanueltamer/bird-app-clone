@@ -16,6 +16,7 @@
     "react-dom": "^18.2.0",
     "react-flip-move": "^3.0.5",
     "react-redux": "^8.0.5",
+    "react-router-dom": "^6.4.4",
     "react-scripts": "5.0.1",
     "react-tooltip": "^5.7.5",
     "react-twitter-embed": "^4.0.4",
@@ -50,3 +51,4 @@
   "author": "",
   "license": "ISC"
 }
+
