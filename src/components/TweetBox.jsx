@@ -27,7 +27,7 @@ export default function TweetBox() {
     setShowImageInput(!showImageInput);
   };
 
-  const sendTweet = (e, event) => {
+  const sendTweet = (e) => {
     e.preventDefault();
 
     if (!user) {
@@ -77,16 +77,21 @@ export default function TweetBox() {
       avatar: user.photoUrl,
       userId: userId, // add user ID field to post
       timestamp: firebase.firestore.FieldValue.serverTimestamp(), // add timestamp field to post
+    })
+    .then((docRef) => {
+      console.log("Document written with ID: ", docRef.id);
+      setTweetMessage("");
+      setTweetImage("");
+    })
+    .catch((error) => {
+      console.error("Error adding document: ", error);
     });
-
-    setTweetMessage("");
-    setTweetImage("");
     
 
   };
 
   const keyDownHandler = (e) => {
-    if ((e.ctrlKey || e.metaKey) && e.key == "Enter") {
+    if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
         // handle Ctrl/Command + Enter
         e.preventDefault();
         sendTweet(e);
@@ -125,7 +130,7 @@ export default function TweetBox() {
           <div className="tweetBox__icons">
             <Image
               id="image__component"
-              data-tooltip-content="insert image"
+              data-tooltip-content="Insert Image/GIF"
               onClick={toggleImageInput}
               className="tweetBox__icon"
             />
