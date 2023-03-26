@@ -231,3 +231,16 @@
     transition: transform 0.6 ease-in-out;
     color: #71777b;
 }
+
+.thread__liked{
+    color: #FA1880;
+    transition: color 0.3s ease-in-out;
+}
+
+.thread__footerIcon:active{
+    transform: scale(1.2);
+}
+
+.thread__footerIcon::after{
+    transform: scale(0.8);
+}

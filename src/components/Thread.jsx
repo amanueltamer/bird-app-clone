@@ -40,6 +40,11 @@ export default function Thread() {
   const [textareaOpened, setTextareaOpened] = useState(false);
   const [loading, setLoading] = useState(false);
   const [comments, setComments] = useState([]);
+  const [like, setLike] = useState(false);
+  
+  const handleLike = () => {
+    setLike(!like);
+  };
 
   const { postId, commentsId } = useParams();
 
@@ -191,7 +196,10 @@ export default function Thread() {
         <div className="thread__footer">
           <ChatBubbleOutlineOutlined className="thread__footerIcon" />
           <Repeat className="thread__footerIcon" />
-          <Favorite className="thread__footerIcon" />
+          <Favorite onClick={handleLike}
+              className={
+                like ? "thread__footerIcon thread__liked" : "thread__footerIcon"
+              } />
           <Bookmark className="thread__footerIcon" />
           <Publish className="thread__footerIcon" />
         </div>
