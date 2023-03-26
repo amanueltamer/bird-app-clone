@@ -96,9 +96,15 @@ const Post = forwardRef(
     return (
       <div onClick={openPost} className="post" ref={ref}>
         {error && (
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+      <Snackbar open={open} autoHideDuration={6000} onClose={(event) => {
+        event.stopPropagation();
+        handleClose()
+      }}>
         <Alert
-          onClose={handleClose}
+          onClose={(event) => {
+            event.stopPropagation();
+            handleClose();
+          }}
           severity="error"
           sx={{ width: "100%" }}
         >
