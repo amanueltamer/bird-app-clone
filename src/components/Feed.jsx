@@ -25,7 +25,7 @@ export default function Feed() {
         setPosts(
           snapshot.docs.map(function (doc) {
             setLoading(false);
-            return doc.data();
+            return {...doc.data(), id: doc.id};
           })
         );
       });
@@ -146,13 +146,14 @@ export default function Feed() {
         <FlipMove>
           {posts.map((post) => (
             <Post
-              key={post.text}
+              key={post.id}
               displayName={post.displayName}
               username={post.username}
               verified={post.verified}
               text={post.text}
               avatar={post.avatar}
               image={post.image}
+              postId={post.id}
             />
           ))}
         </FlipMove>
