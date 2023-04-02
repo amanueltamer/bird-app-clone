@@ -23,10 +23,16 @@ export default function Feed() {
       .orderBy("timestamp", "desc")
       .onSnapshot(function (snapshot) {
         setPosts(
-          snapshot.docs.map(function (doc) {
-            setLoading(false);
-            return {...doc.data(), id: doc.id};
-          })
+          snapshot.docs
+            .map(function (doc) {
+              const data = doc.data();
+              if (!data.commentPost) { // check if commentPost field is not true
+                setLoading(false);
+                return { ...data, id: doc.id };
+              }
+              return null; // skip this post if commentPost field is true
+            })
+            .filter((post) => post !== null) // remove any null posts from the array
         );
       });
   }, []);
@@ -148,6 +154,7 @@ export default function Feed() {
             <Post
               key={post.id}
               displayName={post.displayName}
+              commentPost={post.commentPost}
               username={post.username}
               verified={post.verified}
               text={post.text}
