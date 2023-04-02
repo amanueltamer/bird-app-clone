@@ -244,3 +244,13 @@
 .thread__footerIcon::after{
     transform: scale(0.8);
 }
+
+.thread__replyingTo {
+    padding-top: 6px;
+    /* padding-bottom: 12px; */
+    padding-left: 62px;
+}
+
+.thread__replyingToName {
+    color: var(--twitter-color);
+}
