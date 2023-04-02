@@ -77,6 +77,7 @@ export default function TweetBox() {
       avatar: user.photoUrl,
       userId: userId, // add user ID field to post
       timestamp: firebase.firestore.FieldValue.serverTimestamp(), // add timestamp field to post
+      commentPost: false,
     })
     .then((docRef) => {
       console.log("Document written with ID: ", docRef.id);
