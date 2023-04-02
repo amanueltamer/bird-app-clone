@@ -7,7 +7,7 @@ import {
   Verified,
 } from "@mui/icons-material";
 import { Alert, Avatar, Snackbar } from "@mui/material";
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import "../css/Post.css";
 import { db } from "../firebase-config";
 
@@ -20,11 +20,10 @@ import { selectPost } from "../features/postSlice";
 import firebase from "firebase/compat/app";
 
 const Post = forwardRef(
-  ({ displayName, username, verified, text, image, avatar, postId }, ref) => {
+  ({ displayName, username, verified, text, image, avatar, postId, commentPost}, ref) => {
     const [like, setLike] = useState(false);
     const [error, setError] = useState(false);
     const [open, setOpen] = useState(false);
-
 
     const dispatch = useDispatch();
 
@@ -40,6 +39,7 @@ const Post = forwardRef(
           image,
           avatar,
           postId,
+          commentPost,
         })
       );
       navigate(`/thread/${postId}`);
@@ -91,8 +91,6 @@ const Post = forwardRef(
         setOpen(prevOpen => !prevOpen)
       }
 
-
-
     return (
       <div onClick={openPost} className="post" ref={ref}>
         {error && (
@@ -143,7 +141,8 @@ const Post = forwardRef(
               event.stopPropagation();
             }}
           >
-            <ChatBubbleOutlineOutlined className="post__footerIcon" />
+            <ChatBubbleOutlineOutlined 
+            onClick={openPost} className="post__footerIcon" />
             <Repeat className="post__footerIcon" />
             <Favorite
               onClick={handleLike}
