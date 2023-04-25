@@ -159,6 +159,8 @@ export default function Feed() {
               verified={post.verified}
               text={post.text}
               avatar={post.avatar}
+              likes={post.likes}
+              likedBy={post.likedBy}
               image={post.image}
               postId={post.id}
             />
