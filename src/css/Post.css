@@ -24,6 +24,7 @@
 .post__footer {
     display: flex;
     justify-content: space-between;
+    align-content: center;
     margin-top: 8px;
     /* color: #71777b; */
     max-width: 450px;
@@ -63,11 +64,11 @@
     margin-bottom: 5px;
 }
 
-#text {
+/* #text {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-}
+} */
 
 .post__badge {
     font-size: 18px !important;
@@ -104,9 +105,13 @@ p {
     white-space: pre-wrap;
 }
 
-/* @media (max-width: 850px) {
-    .post {
-        display: flex;
-        justify-content: center;
-    }
-} */
+.post__likeButton {
+    display: flex;
+    align-items: center;
+}
+
+.post__likeCount {
+    padding-left: 12px;
+    color: #71777b;
+    font-size: 20px;
+}
