@@ -210,7 +210,7 @@ import {
             postRef.get().then((doc) => {
               if (doc.exists) {
                 // Dispatch an action to update the selected post in the Redux store
-                const updatedPost = { ...doc.data(), id: doc.id };
+                const updatedPost = { ...doc.data(), postId: doc.id };
                 console.log("Updated post after unlike: ", updatedPost);
                 dispatch(updatePost(updatedPost));
                 console.log("Selected post after unlike: ", selectedPost);
@@ -231,7 +231,7 @@ import {
             postRef.get().then((doc) => {
               if (doc.exists) {
                 // Dispatch an action to update the selected post in the Redux store
-                const updatedPost = { ...doc.data(), id: doc.id };
+                const updatedPost = { ...doc.data(), postId: doc.id };
                 console.log("Updated post after like: ", updatedPost);
                 dispatch(updatePost(updatedPost));
                 console.log("Selected post after like: ", selectedPost);
