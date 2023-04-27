@@ -203,7 +203,9 @@ const Post = forwardRef(
                     ? "post__footerIcon post__liked"
                     : "post__footerIcon"
                 } />
-                <span className="post__likeCount">{likes}</span>
+                <span className={
+                  !likes ? "post__likeCountZero" : "post__likeCount"
+                }>{likes}</span>
             </div>
             <Publish className="post__footerIcon" />
             <Clear
