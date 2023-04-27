@@ -253,6 +253,8 @@ import {
     console.log(selectedPost);
   
     console.log(postId);
+
+    console.log(currentUser)
     // console.log(comments);
     // console.log(commentsId);
     // console.log(posts);
@@ -331,7 +333,7 @@ import {
   
           <div className="thread__inputContainer">
               <div className="thread__avatar">
-            <Avatar src={selectedPost?.avatar} />
+            <Avatar src={currentUser?.photoURL} />
           </div>
   
             <form>
