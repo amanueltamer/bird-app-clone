@@ -115,3 +115,7 @@ p {
     color: #71777b;
     font-size: 20px;
 }
+
+.post__likeCountZero {
+    display: none;
+}
