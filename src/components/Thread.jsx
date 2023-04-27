@@ -190,7 +190,7 @@ import {
       }
     };
 
-    const handleLike = (postId) => {
+  const handleLike = (postId) => {
   const user = firebase.auth().currentUser;
   const postRef = db.collection("posts").doc(postId);
 
@@ -316,7 +316,10 @@ import {
                     ? "thread__footerIcon thread__liked"
                     : "thread__footerIcon"
                 } />
-                <span className="thread__likeCount">{selectedPost?.likes}</span>
+                <span className={
+                  !selectedPost?.likes ? "thread__likeCountZero" : "thread__likeCount"
+                }>
+                  {selectedPost?.likes}</span>
             </div>
             <Bookmark className="thread__footerIcon" />
             <Publish className="thread__footerIcon" />
