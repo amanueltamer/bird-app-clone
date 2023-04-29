@@ -93,11 +93,9 @@
 }
 
 .thread__postText {
-    /* padding-right: 16px;
-    padding-left: 16px; */
     padding-top: 24px;
     padding-bottom: 16px;
-    /* padding-left: 8px; */
+    
 }
 
 .thread__postText > p {
@@ -116,6 +114,7 @@
 }
 
 .thread__container {
+    max-width: 600px;
     padding-right: 16px;
     padding-left: 16px;
     border-bottom: 1px solid #2f3336;
@@ -268,5 +267,20 @@
 }
 
 .thread__likeCountZero {
+    display: none;
+}
+
+.thread__commentButton {
+    display: flex;
+    align-items: center;
+}
+
+.thread__commentCount{
+    padding-left: 12px;
+    color: #71777b;
+    font-size: 24px;
+}
+
+.thread__commentCountZero {
     display: none;
 }
