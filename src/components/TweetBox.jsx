@@ -79,6 +79,7 @@ export default function TweetBox() {
       timestamp: firebase.firestore.FieldValue.serverTimestamp(), // add timestamp field to post
       commentPost: false,
       likes: 0,
+      comments: 0,
     })
     .then((docRef) => {
       console.log("Document written with ID: ", docRef.id);
