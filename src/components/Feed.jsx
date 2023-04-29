@@ -161,6 +161,8 @@ export default function Feed() {
               avatar={post.avatar}
               likes={post.likes}
               likedBy={post.likedBy}
+              comments={post.comments}
+              commentCount={post.commentCount}
               image={post.image}
               postId={post.id}
             />
