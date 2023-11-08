@@ -49,7 +49,7 @@ export default function TweetBox() {
     }
 
     if (tweetMessage.length > 280) {
-      setError("The message must be less than 140 characters.");
+      setError("The message must be less than 280 characters.");
       setTimeout(() => {
         setError("");
       }, 2000);
