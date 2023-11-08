@@ -129,7 +129,7 @@ export default function Thread() {
     }
 
     if (commentMessage.length > 280) {
-      setError("The message must be less than 140 characters.");
+      setError("The message must be less than 280 characters.");
       setTimeout(() => {
         setError("");
       }, 2000);
@@ -358,7 +358,7 @@ export default function Thread() {
 
         <div className="thread__footer">
           <div className="thread__commentButton">
-            <Comment className="thread__footerIcon" />
+            <ChatBubbleOutlineOutlined className="thread__footerIcon" />
             <span className={!selectedPost?.commentCount ? "thread__commentCountZero" : "thread__commentCount"}>
               {selectedPost?.commentCount}
             </span>
